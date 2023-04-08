@@ -20,6 +20,7 @@ namespace MoviesAPI.Controllers
         // GET: /<controller>/
         public IEnumerable<Movie> Get()
         {
+        //this filters the data and sorts it alphabetically
             return context.Movie
                 .Where(m => m.Edited == "Yes")
                 .OrderBy(m => m.Title)
