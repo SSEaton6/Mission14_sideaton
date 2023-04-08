@@ -20,7 +20,10 @@ namespace MoviesAPI.Controllers
         // GET: /<controller>/
         public IEnumerable<Movie> Get()
         {
-            return context.Movie.ToArray();
+            return context.Movie
+                .Where(m => m.Edited == "Yes")
+                .OrderBy(m => m.Title)
+                .ToArray();
         }
         //public void Post(Movie m)
         //{
