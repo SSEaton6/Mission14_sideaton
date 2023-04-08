@@ -4,10 +4,12 @@ import Navbar from './navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //this function loops through the data file and displays the movies in a table.
+// useEffect makes it so that it doesn't continually call the API for the data
 function MovieList() {
   const [movieData, setMovieData] = useState<movie[]>([]);
 
   useEffect(() => {
+    // this is what grabs the data from the API
     const fetchMovies = async () => {
       const rsp = await fetch('https://localhost:4000/movie');
       const temp = await rsp.json();
